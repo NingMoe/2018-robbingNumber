@@ -1,6 +1,8 @@
-# y
+# 澳门靓号齐齐抢活动
 
-> A Vue.js project
+``` bash
+# 参与人：张涛、吴翔
+```
 
 ## Build Setup
 
