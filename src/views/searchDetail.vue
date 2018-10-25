@@ -18,8 +18,8 @@
                             <div class="inset-info">
                                 <div class="info-time">
                                     <div class="time-text">
-                                        <p><span>預留時間：</span>{{list.reserve_time.split('-')[0]}}年{{list.reserve_time.split('-')[1]}}月{{list.reserve_time.split('-')[2]}}日</p>
-                                        <p v-if="list.state != 5"><span>失效時間：</span>{{list.expiry_time.split('-')[0]}}年{{list.expiry_time.split('-')[1]}}月{{list.expiry_time.split('-')[2]}}日</p>
+                                        <p v-if="list.state != 2"><span>預留時間：</span>{{list.reserve_time.split('-')[0]}}年{{list.reserve_time.split('-')[1]}}月{{list.reserve_time.split('-')[2]}}日</p>
+                                        <p v-if="list.state != 5 && list.state != 2"><span>失效時間：</span>{{list.expiry_time.split('-')[0]}}年{{list.expiry_time.split('-')[1]}}月{{list.expiry_time.split('-')[2]}}日</p>
                                         <p v-if="list.state == 5"><span>失效時間：</span>{{list.give_time.split('-')[0]}}年{{list.give_time.split('-')[1]}}月{{list.give_time.split('-')[2]}}日</p>
                                         <p class="get-code">提取码：<big>{{list.distill_code || ''}}</big></p>
                                     </div>
@@ -135,8 +135,8 @@
                             <div class="inset-info">
                                 <div class="info-time">
                                     <div class="time-text">
-                                        <p><span>預留時間：</span>{{list.reserve_time.split('-')[0]}}年{{list.reserve_time.split('-')[1]}}月{{list.reserve_time.split('-')[2]}}日</p>
-                                        <p v-if="list.state != 5"><span>失效時間：</span>{{list.expiry_time.split('-')[0]}}年{{list.expiry_time.split('-')[1]}}月{{list.expiry_time.split('-')[2]}}日</p>
+                                        <p v-if="list.state != 2"><span>預留時間：</span>{{list.reserve_time.split('-')[0]}}年{{list.reserve_time.split('-')[1]}}月{{list.reserve_time.split('-')[2]}}日</p>
+                                        <p v-if="list.state != 5 && list.state != 2"><span>失效時間：</span>{{list.expiry_time.split('-')[0]}}年{{list.expiry_time.split('-')[1]}}月{{list.expiry_time.split('-')[2]}}日</p>
                                         <p v-if="list.state == 5"><span>失效時間：</span>{{list.give_time.split('-')[0]}}年{{list.give_time.split('-')[1]}}月{{list.give_time.split('-')[2]}}日</p>
                                         <p class="get-code">提取码：<big>{{list.distill_code || ''}}</big></p>
                                     </div>
