@@ -1,0 +1,406 @@
+.linearGradient{background: linear-gradient(90deg,#e10c27,#ff6719)}
+.mint-indicator-mask {z-index: 100000}
+.mint-indicator-wrapper {z-index: 1000001}
+.mint-msgbox-btns {height: 50px !important;line-height: 50px !important;}
+.mint-msgbox-btn {cursor: pointer;font-size: 16px;}
+.pop-preheating-text {line-height:26px;}
+.mint-msgbox-header {padding-top: 20px !important}
+.text-center {
+    text-align: center;
+}
+.diyBtn{
+    display: inline-block;
+    cursor: pointer;
+    padding-bottom: 6.6667vw;
+    position: relative;
+    &.hasNoShdow{
+        padding-bottom: 0;
+        .likeShadowBlurry{
+            height: 0;
+        }
+    }
+    .diyBtnCtn{
+        position: relative;
+        text-align: center;
+        min-width: 60vw;
+        font-size: 5vw;
+        line-height: 1.5;
+        padding: 2.8vw 10.6667vw;
+        color: #fff;
+        border-radius: 1.6vw;
+        overflow: hidden;
+        background: linear-gradient(90deg,#e10c27,#ff6719);
+        box-shadow: 0 10px 20px rgba(288,190,195,.8);
+    }
+    .diyBtnText{
+        position: absolute;
+        padding: 0 26.6667vw 0 2.3333vw;
+        font-size: 3.2vw;
+        line-height: 4.2667vw;
+        color: #e20d28;
+        background: #ffbc6d;
+        top: -3vw;
+        left: -3.3333vw;
+        transform: rotate(-23deg)
+    }
+    .likeShadowBlurry{
+        position: absolute;
+        left: 5%;
+        width: 90%;
+        height: 2.2vw;
+        // background: linear-gradient(90deg,#e10c27,#ff6719);
+        // filter: blur(2vw);
+    }
+}
+.comFixBtm{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background: #f2f2f2;
+    border-top: 1px solid #cdcdcd;
+    &.bgFFF{
+        background: #fff;
+    }
+    &Ctn{
+        width: 100%;
+        margin: 0 auto;
+        padding: 0 0 0 4vw;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        &.double{
+            .hasChooseChinaNum{
+                display: flex;
+                align-items: center;
+                // padding-left: 3.2vw;
+                div{
+                    &:first-child{
+                        .linearGradient;
+                        font-size: 3.2vw;
+                        line-height: 4vw;
+                        color: #fff;
+                        border-radius: 0.8vw;
+                        padding: 2.6667vw 0.8667vw;
+                        margin-right: 2.4667vw;
+                    }
+                }
+            }
+            .preButton{
+                user-select: none;
+                padding: 6.6667vw 0;
+            }
+        }
+    }
+    .hasChooseChinaNum{
+        color: #313131;
+        font-size: 3.2vw;
+        line-height: 1.2;      
+        .numText{
+            font-size: 4.8vw;
+            color: #d4000a;
+        }
+    }
+    .preButton{
+        user-select: none;
+        .linearGradient;
+        display: block;
+        font-size: 4vw;
+        padding: 3.5vw 0;
+        color: #fff;
+        width: 37vw;
+        text-decoration: none;
+        text-align: center;
+    }
+}
+/*预热弹窗*/
+.alertFade-enter-active {
+    transition: all .3s ease;
+}
+.alertFade-leave-active {
+    transition: all .3s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+}
+.alertFade-enter, .alertFade-leave-to{
+    background: rgba(0,0,0, .5);
+}
+
+.alertCtnFade-enter-active {
+    transition: all .3s ease;
+}
+.alertCtnFade-leave-active {
+    transition: all .3s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+}
+.alertCtnFade-enter, .alertCtnFade-leave-to{
+    transform: translateX(20px);
+    opacity: 0;
+}
+.preheatingAlert{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0, .5);
+    z-index: 999;
+    &Ctn{
+        width: 80vw;
+        padding: 12vw 4.2667vw 2.6667vw;
+        background: #fff;
+        border-radius: 1.3333vw;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        .container{
+            width: auto;
+        }
+        .close{
+            position: absolute;
+            top: 2.6667vw;
+            right: 4vw;
+            width: 5.3333vw;
+            height: 5.3333vw;
+            cursor: pointer;
+            background: url(../../../static/images/alertClose.png) no-repeat center center;
+            background-size: 4vw 4vw;
+        }
+        .remindSuccess{
+            text-align: center;
+            padding-bottom: 4vw;
+            .clockImg{
+                width: 15.2vw;
+                margin-bottom: 4.2667vw;
+            }
+            .resultText{
+                font-size: 4vw;
+                color: #313131;
+                margin-bottom: 4.2667vw;
+            }
+            .tips{
+                font-size: 3.2vw;
+                color: #959595;
+            }
+            .remindBtm{
+                margin-top: 4.2667vw;
+                display: inline-block;
+                font-size: 5.6vw;
+                line-height: 1.5;
+                padding: 2.8vw 21.6667vw;
+                color: #d4000a;
+                border-radius: 1.6vw;
+                border: 1px solid #d4000a;
+            }
+        }
+        .default-input{
+            border: 1px solid #d2d2d2;
+        }
+        .alertUl{
+            li{
+                margin-bottom: 2.4vw;
+                &:last-child{
+                    margin-bottom: 0;
+                }
+            }
+        }
+        .inset-code {
+            display: flex;
+            justify-content: space-between;
+            .code-input{
+                flex: 1;
+            }
+            .code-btn {
+                margin-left: 2vw;
+                width: 28vw;
+            }
+            a{
+                .linearGradient;
+                display: block;
+                height: 12vw;
+                line-height: 12vw;
+                color: #fff;
+                text-decoration: none;
+                font-size: 3.7333vw;
+                text-align: center;
+                border-radius: 1.3333vw;
+                &.unclick{
+                    background: #ccc !important;
+                }
+            }
+        }
+    }
+}
+@media screen and ( max-width: 767px ) { 
+    .xs-show {
+        display: block;
+    }
+    .sm-show {
+        display: none;
+    }
+    .container {
+        padding: 0 4vw;
+    } 
+
+    .preheatingAlert{
+        &Ctn{
+            top: 10vw;
+            transform: translate(-50%,0);
+        }
+    }
+}
+
+@media screen and ( min-width: 768px ) {
+    //修改mint-ui 樣式開始
+    .mint-msgbox {
+        width: 360px !important;
+    }
+    //修改mint-ui 樣式結束
+    .container {
+        width: 960px;
+        margin: 0 auto;
+    } 
+    .xs-show {
+        display: none
+    }
+    .sm-show {
+        display: block;
+    }
+    .diyBtn{
+        padding-bottom: 28px;
+        .diyBtnCtn{
+            font-size: 18px;
+            line-height: 26px;
+            padding: 20px 40px;
+            border-radius: 6px;
+            min-width: 220px;
+            box-shadow: 0 10px 20px rgba(288,190,195,.8);
+        }
+        .diyBtnText{
+            position: absolute;
+            padding: 0 100px 0 18px;
+            font-size: 14px;
+            line-height: 20px;
+            top: -8px;
+            left: -20px;
+        }
+        .likeShadowBlurry{
+            position: absolute;
+            height: 10px;
+            filter: blur(10px);
+        }
+    }
+    .comFixBtm{
+        width: 100%;
+        &Ctn{
+            width: 960px;
+            margin: 0 auto;
+            padding: 0 110px 0 150px;
+            &.double{
+                .hasChooseChinaNum{
+                    display: flex;
+                    align-items: center;
+                    padding-left: 0;
+                    div{
+                        &:first-child{
+                            font-size: 14px;
+                            line-height: 21px;
+                            border-radius: 6px;
+                            padding: 10px 6px;
+                            margin-right: 10px;
+                        }
+                    }
+                }
+                .preButton{
+                    user-select: none;
+                    cursor: pointer;
+                    padding: 30px 60px;
+                    width: auto;
+                }
+            }
+        }
+        .hasChooseChinaNum{
+            font-size: 14px;
+            .numText{
+                font-size: 24px;
+            }
+        }
+        .preButton{
+            user-select: none;
+            cursor: pointer;
+            .linearGradient;
+            width: auto;
+            font-size: 14px;
+            line-height: 20px;
+            padding: 20px 60px;
+        }
+    }
+    /*预热弹窗*/
+    .preheatingAlert{
+        &Ctn{
+            width: 600px;
+            padding: 90px 32px 20px;
+            border-radius: 10px;
+            .close{
+                top: 20px;
+                right: 30px;
+                width: 40px;
+                height: 40px;
+                background-size: 30px 30px;
+            }
+            .remindSuccess{
+                padding-bottom: 30px;
+                .clockImg{
+                    width: 114px;
+                    margin-bottom: 20px;
+                }
+                .resultText{
+                    font-size: 24px;
+                    margin-bottom: 20px;
+                }
+                .tips{
+                    font-size: 14px;
+                }
+                .remindBtm{
+                    margin-top: 20px;
+                    font-size: 18px;
+                    padding: 21px 160px;
+                    border-radius: 12px;
+                }
+            }
+            .alertUl{
+                li{
+                    margin-bottom: 18px;
+                }
+            }
+            .inset-code {
+                .code-btn {
+                    margin-left: 15px;
+                    width: 156px;
+                }
+                a{
+                    cursor: pointer;
+                    .linearGradient;
+                    display: block;
+                    height: 52px;
+                    line-height: 52px;
+                    color: #fff;
+                    text-decoration: none;
+                    font-size: 16px;
+                    text-align: center;
+                    border-radius: 5px;
+                    &.unclick{
+                        background: #ccc !important;
+                    }
+                }
+            }
+            
+        }
+    }
+}
+
+.index-popend {
+    line-height: 24px;
+    text-align: left;
+    word-break: break-all;
+}
+.bgf2f2f2{
+    background: #f2f2f2;
+}
