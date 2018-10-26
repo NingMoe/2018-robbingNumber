@@ -129,11 +129,16 @@
             }
         },
         mounted(){
-            if (window.sessionStorage.getItem('enterOneCard') != 1) {
+            if (window.sessionStorage.getItem('notShare') != '1') {
                 this.$router.push({
                     path: '/'
                 })
                 return false;
+            }
+            if (window.sessionStorage.getItem('enterOneCard') != 1) {
+                this.$router.push({
+                    path: '/'
+                })
             }
             this.msisdn = this.$route.query.msisdn ? this.$route.query.msisdn : '';
             this.getNumberFn();

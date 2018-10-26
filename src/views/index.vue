@@ -344,7 +344,7 @@
                         interCountDown = setInterval(() => {
                             if (t == 1) {
                                 this.checking = false
-                                clearInterval(inter);
+                                clearInterval(interCountDown);
                                 this.vcodeText = '重新獲取'
                                 return false;
                             }

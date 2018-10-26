@@ -199,8 +199,7 @@
     // import popChoose from '@/components/popChoose'
     export default {
         mounted () {
-            //this.shareIndex();
-            if (window.sessionStorage.getItem('enterOneCard') != 1) {
+            if (window.sessionStorage.getItem('notShare') != '1') {
                 this.$router.push({
                     path: '/'
                 })

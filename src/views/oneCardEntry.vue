@@ -51,11 +51,12 @@
     import sharePc from '@/components/sharePc.vue'
     export default {
         mounted () {
+            this.shareIndex();
+            // console.log(this.$route)
             if (window.sessionStorage.getItem('enterOneCard') != 1) {
                 this.$router.push({
                     path: '/'
                 })
-                return false;
             }
         },
         components: {

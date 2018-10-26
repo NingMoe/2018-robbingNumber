@@ -35,7 +35,7 @@
             // this.$axios.post('releaseNumber',{
             //     uuid:"8c4efe5e-12ad-499b-9eab-737ffa0d0563"
             // })
-            if (window.sessionStorage.getItem('enterOneCard') != 1) {
+            if (window.sessionStorage.getItem('notShare') != '1') {
                 this.$router.push({
                     path: '/'
                 })
