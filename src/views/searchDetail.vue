@@ -117,9 +117,9 @@
                         </li> -->
                     </ul>
                     <div class="diyBtnWrap m-t-20 text-center">
-                        <a class="diyBtn" v-if="ykshList.length < 4" @click="goToOneCard">
+                        <a class="diyBtn" v-if="(ykshList.filter(item => item.state != 2 && item.state != 5)).length < 4" @click="goToOneCard">
                             <div class="diyBtnCtn">
-                                還可獲取{{4 - ykshList.length}}組靚號
+                                還可獲取{{4 - (ykshList.filter(item => item.state != 2 && item.state != 5)).length}}組靚號
                             </div>
                             <div class="likeShadowBlurry"></div>
                         </a>
