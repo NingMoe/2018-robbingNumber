@@ -199,7 +199,13 @@
     // import popChoose from '@/components/popChoose'
     export default {
         mounted () {
-            this.shareIndex();
+            //this.shareIndex();
+            if (window.sessionStorage.getItem('enterOneCard') != 1) {
+                this.$router.push({
+                    path: '/'
+                })
+                return false;
+            }
             this.getList();
         },
         data () {

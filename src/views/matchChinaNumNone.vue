@@ -55,6 +55,12 @@
 <script>
     export default {
         mounted () {
+            if (window.sessionStorage.getItem('enterOneCard') != 1) {
+                this.$router.push({
+                    path: '/'
+                })
+                return false;
+            }
         },
         data(){
             return{

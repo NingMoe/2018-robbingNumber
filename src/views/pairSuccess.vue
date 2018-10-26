@@ -35,6 +35,12 @@
             // this.$axios.post('releaseNumber',{
             //     uuid:"8c4efe5e-12ad-499b-9eab-737ffa0d0563"
             // })
+            if (window.sessionStorage.getItem('enterOneCard') != 1) {
+                this.$router.push({
+                    path: '/'
+                })
+                return false;
+            }
             this.$axios.post('getNumber', {
                 rule_type: 1,
                 number: this.msisdn,

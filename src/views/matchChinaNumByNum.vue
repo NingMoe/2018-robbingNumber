@@ -42,6 +42,12 @@
 <script>
     export default {
         mounted () {
+            if (window.sessionStorage.getItem('enterOneCard') != 1) {
+                this.$router.push({
+                    path: '/'
+                })
+                return false;
+            }
             this.$axios.post('getNumber',{
                 rule_type: 1,
                 number: this.$route.query.msisdn ||'',

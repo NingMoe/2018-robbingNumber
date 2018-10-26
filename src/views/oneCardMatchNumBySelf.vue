@@ -133,6 +133,7 @@
                 this.$router.push({
                     path: '/'
                 })
+                return false;
             }
             this.msisdn = this.$route.query.msisdn ? this.$route.query.msisdn : '';
             this.getNumberFn();

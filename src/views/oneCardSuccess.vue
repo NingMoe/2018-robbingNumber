@@ -68,8 +68,8 @@
                 this.$router.push({
                     path: '/'
                 })
+                return false;
             }
-            this.shareIndex();
             this.cmdn = this.$route.query.cmdn? this.$route.query.cmdn : '';
             this.msisdn = this.$route.query.msisdn? this.$route.query.msisdn : '';
             this.expiry_time = this.$route.query.expiry_time? this.$route.query.expiry_time : '';
