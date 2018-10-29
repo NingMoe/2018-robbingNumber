@@ -82,21 +82,28 @@
                 })
             },
             toSelf (src,type) {
-                this.$axios.post('releaseNumber',{
-                    uuid: this.uuid
-                })
-                .then(res => {
-                    if (res.data.meta.success) {
-                        this.$router.push({
-                            path: '/'+src,
-                            query: {
-                                msisdn: this.msisdn,
-                                type: type
-                            }
-                        })
-                        // this.$messagebox.alert('放棄成功');
+                this.$router.push({
+                    path: '/'+src,
+                    query: {
+                        msisdn: this.msisdn,
+                        type: type
                     }
                 })
+                // this.$axios.post('releaseNumber',{
+                //     uuid: this.uuid
+                // })
+                // .then(res => {
+                //     if (res.data.meta.success) {
+                //         this.$router.push({
+                //             path: '/'+src,
+                //             query: {
+                //                 msisdn: this.msisdn,
+                //                 type: type
+                //             }
+                //         })
+                //         // this.$messagebox.alert('放棄成功');
+                //     }
+                // })
                 // $router.push({path: '/matchchinanumbyself',query: {msisdn: msisdn,type: 1}})
             }
         }

@@ -128,23 +128,24 @@
             searchFn(){
                 // console.log(this.searchText);
                 this.statisPoint(12);
-                if (this.uuid != '') {
-                    this.$axios.post('releaseNumber',{
-                        uuid: this.uuid
-                    },{
-                        auth: {
-                            endNone: true 
-                        }
-                    }).then(res => {
-                        //if (res.data.meta.success) {
-                            this.uuid = '';
-                            this.getList();
-                        //}
-                    })
-                }
-                else {
-                    this.getList();
-                }
+                this.getList();
+                // if (this.uuid != '') {
+                //     this.$axios.post('releaseNumber',{
+                //         uuid: this.uuid
+                //     },{
+                //         auth: {
+                //             endNone: true 
+                //         }
+                //     }).then(res => {
+                //         //if (res.data.meta.success) {
+                //             this.uuid = '';
+                //             this.getList();
+                //         //}
+                //     })
+                // }
+                // else {
+                //     this.getList();
+                // }
             },
             getList () {
                 this.$axios.post('getNumber',{

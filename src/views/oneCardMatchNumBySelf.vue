@@ -193,35 +193,36 @@
             },
             searchFn(){
                 this.statisPoint(21);
-                if(!this.uuid){
-                    this.getNumberFn();
-                }else{
-                    this.$axios.post('releaseNumber',{
-                        uuid: this.uuid
-                    },{
-                        auth: {
-                            endNone: true 
-                        }
-                    }).then(res=>{
-                        this.uuid = '';
-                        this.getNumberFn();
-                        // if(res.data.meta.success){
-                        //     // let data = res.data.data;
-                        //     // if(data.resultCode == 0){
-                        //     //     this.getNumberFn();
-                        //     // }else{
-                        //     //     this.$messagebox.alert('释放失败请重试！',{
-                        //     //         confirmButtonText: '確定',
-                        //     //         title: '提示'
-                        //     //     });
-                        //     // }
+                this.getNumberFn();
+                // if(!this.uuid){
+                //     this.getNumberFn();
+                // }else{
+                //     this.$axios.post('releaseNumber',{
+                //         uuid: this.uuid
+                //     },{
+                //         auth: {
+                //             endNone: true 
+                //         }
+                //     }).then(res=>{
+                //         this.uuid = '';
+                //         this.getNumberFn();
+                //         // if(res.data.meta.success){
+                //         //     // let data = res.data.data;
+                //         //     // if(data.resultCode == 0){
+                //         //     //     this.getNumberFn();
+                //         //     // }else{
+                //         //     //     this.$messagebox.alert('释放失败请重试！',{
+                //         //     //         confirmButtonText: '確定',
+                //         //     //         title: '提示'
+                //         //     //     });
+                //         //     // }
                             
-                        // }
-                        // else {
+                //         // }
+                //         // else {
                             
-                        // }
-                    })
-                }
+                //         // }
+                //     })
+                // }
                 
             },
             getNumberFn(){

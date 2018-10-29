@@ -119,24 +119,31 @@
             },
             toSelf (src,type) {
                 this.statisPoint(8);
-                this.$axios.post('releaseNumber',{
-                    uuid: this.uuid
-                },{
-                    auth: {
-                       endNone: true 
+                this.$router.push({
+                    path: '/'+src,
+                    query: {
+                        msisdn: this.msisdn,
+                        type: type
                     }
                 })
-                .then(res => {
-                    // if (res.data.meta.success) {
-                        this.$router.push({
-                            path: '/'+src,
-                            query: {
-                                msisdn: this.msisdn,
-                                type: type
-                            }
-                        })
-                    // }
-                })
+                // this.$axios.post('releaseNumber',{
+                //     uuid: this.uuid
+                // },{
+                //     auth: {
+                //        endNone: true 
+                //     }
+                // })
+                // .then(res => {
+                //     // if (res.data.meta.success) {
+                //         this.$router.push({
+                //             path: '/'+src,
+                //             query: {
+                //                 msisdn: this.msisdn,
+                //                 type: type
+                //             }
+                //         })
+                //     // }
+                // })
             }
         }
     }

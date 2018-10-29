@@ -131,23 +131,23 @@
             searchFn(){
                 // console.log(this.searchText);
                 this.statisPoint(12);
-                if (this.uuid != '') {
-                    this.$axios.post('releaseNumber',{
-                        uuid: this.uuid
-                    },{
-                        auth: {
-                            endNone: true 
-                        }
-                    }).then(res => {
-                        //if (res.data.meta.success) {
-                            this.uuid = '';
-                            this.getList();
-                        //}
-                    })
-                }
-                else {
+                // if (this.uuid != '') {
+                //     this.$axios.post('releaseNumber',{
+                //         uuid: this.uuid
+                //     },{
+                //         auth: {
+                //             endNone: true 
+                //         }
+                //     }).then(res => {
+                //         //if (res.data.meta.success) {
+                //             this.uuid = '';
+                //             this.getList();
+                //         //}
+                //     })
+                // }
+                // else {
                     this.getList();
-                }
+                // }
             },
             getList () {
                 this.$axios.post('getNumber',{
@@ -183,34 +183,39 @@
                 else {
                     _url = 'matchchinanumbynum'
                 }
-
-                if (this.uuid != '') {
-                    this.$axios.post('releaseNumber',{
-                        uuid: this.uuid
-                    },{
-                        auth: {
-                        endNone: true 
-                        }
-                    })
-                    .then(res => {
-                        //if (res.data.meta.success) {
-                            this.$router.push({
-                                path: '/'+_url,
-                                query: {
-                                    msisdn: this.msisdn,
-                                }
-                            })
-                        //}
-                    })
-                }
-                else {
-                    this.$router.push({
-                        path: '/'+_url,
-                        query: {
-                            msisdn: this.msisdn,
-                        }
-                    })
-                }
+                this.$router.push({
+                    path: '/'+_url,
+                    query: {
+                        msisdn: this.msisdn,
+                    }
+                })
+                // if (this.uuid != '') {
+                //     this.$axios.post('releaseNumber',{
+                //         uuid: this.uuid
+                //     },{
+                //         auth: {
+                //         endNone: true 
+                //         }
+                //     })
+                //     .then(res => {
+                //         //if (res.data.meta.success) {
+                //             this.$router.push({
+                //                 path: '/'+_url,
+                //                 query: {
+                //                     msisdn: this.msisdn,
+                //                 }
+                //             })
+                //         //}
+                //     })
+                // }
+                // else {
+                //     this.$router.push({
+                //         path: '/'+_url,
+                //         query: {
+                //             msisdn: this.msisdn,
+                //         }
+                //     })
+                // }
             }
         }
     }
