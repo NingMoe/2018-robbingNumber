@@ -80,24 +80,27 @@
                 if (this.checking) {
                     return false;
                 }
-                let t = 60;
-                this.checking = true;
-                this.vcodeText = `${t}s后重新獲取`
-                inter = setInterval(() => {
-                    if (t == 1) {
-                        this.checking = false
-                        clearInterval(inter);
-                        this.vcodeText = '重新獲取'
-                        return false;
-                    }
-                    this.checking = true;
-                    t --
-                    this.vcodeText = `${t}s后重新獲取`
-                },1000);
-
                 this.$axios.post('sendSmsCode',{
                     msisdn:this.msisdn,
                     type: 2
+                })
+                .then(res => {
+                    if (res.data.meta.success) {
+                        let t = 60;
+                        this.checking = true;
+                        this.vcodeText = `${t}s后重新獲取`
+                        inter = setInterval(() => {
+                            if (t == 1) {
+                                this.checking = false
+                                clearInterval(inter);
+                                this.vcodeText = '重新獲取'
+                                return false;
+                            }
+                            this.checking = true;
+                            t --
+                            this.vcodeText = `${t}s后重新獲取`
+                        },1000);
+                    }
                 });
             },
             formSubmit () {
