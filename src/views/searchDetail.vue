@@ -19,7 +19,7 @@
                                 <div class="info-time">
                                     <div class="time-text">
                                         <p v-if="list.state != 2"><span>預留時間：</span>{{list.reserve_time.split('-')[0]}}年{{list.reserve_time.split('-')[1]}}月{{list.reserve_time.split('-')[2]}}日</p>
-                                        <p v-if="list.state != 5 && list.state != 2"><span>失效時間：</span>{{list.expiry_time.split('-')[0]}}年{{list.expiry_time.split('-')[1]}}月{{list.expiry_time.split('-')[2]}}日</p>
+                                        <p v-if="list.state != 5 && list.state != 2 && list.state != 3 && list.state != 6"><span>失效時間：</span>{{list.expiry_time.split('-')[0]}}年{{list.expiry_time.split('-')[1]}}月{{list.expiry_time.split('-')[2]}}日</p>
                                         <p v-if="list.state == 5"><span>失效時間：</span>{{list.give_time.split('-')[0]}}年{{list.give_time.split('-')[1]}}月{{list.give_time.split('-')[2]}}日</p>
                                         <p class="get-code">提取码：<big>{{list.distill_code || ''}}</big></p>
                                     </div>
@@ -38,6 +38,10 @@
                                     <p class="time-left"  v-if="list.state == '3'">
                                         <span class="time-icon"></span>
                                         該號碼已成功辦理上台
+                                    </p>
+                                    <p class="time-left"  v-if="list.state == '6'">
+                                        <span class="time-icon"></span>
+                                        該號碼已核銷未辦理
                                     </p>
                                     <p class="time-left"  v-if="list.state == '5'">
                                         <span class="time-icon"></span>
@@ -136,7 +140,7 @@
                                 <div class="info-time">
                                     <div class="time-text">
                                         <p v-if="list.state != 2"><span>預留時間：</span>{{list.reserve_time.split('-')[0]}}年{{list.reserve_time.split('-')[1]}}月{{list.reserve_time.split('-')[2]}}日</p>
-                                        <p v-if="list.state != 5 && list.state != 2"><span>失效時間：</span>{{list.expiry_time.split('-')[0]}}年{{list.expiry_time.split('-')[1]}}月{{list.expiry_time.split('-')[2]}}日</p>
+                                        <p v-if="list.state != 5 && list.state != 2 && list.state != 3 && list.state != 6"><span>失效時間：</span>{{list.expiry_time.split('-')[0]}}年{{list.expiry_time.split('-')[1]}}月{{list.expiry_time.split('-')[2]}}日</p>
                                         <p v-if="list.state == 5"><span>失效時間：</span>{{list.give_time.split('-')[0]}}年{{list.give_time.split('-')[1]}}月{{list.give_time.split('-')[2]}}日</p>
                                         <p class="get-code">提取码：<big>{{list.distill_code || ''}}</big></p>
                                     </div>
@@ -155,6 +159,10 @@
                                     <p class="time-left"  v-if="list.state == '3'">
                                         <span class="time-icon"></span>
                                         該號碼已成功辦理上台
+                                    </p>
+                                    <p class="time-left"  v-if="list.state == '6'">
+                                        <span class="time-icon"></span>
+                                        該號碼已核銷未辦理
                                     </p>
                                     <p class="time-left"  v-if="list.state == '5'">
                                         <span class="time-icon"></span>
