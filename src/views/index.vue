@@ -24,8 +24,8 @@
                     </div>
                     <div class="diyBtnWrap">
                         <a class="diyBtn">
-                            <div class="diyBtnCtn" @click="statisPoint(3),getActiveStart(1)">
-                                搶內地號碼
+                            <div class="diyBtnCtn" :class="{'is-end': activeEnd}" @click="statisPoint(3),getActiveStart(1)">
+                                {{activeEnd ? '活動已結束': '搶內地號碼'}}
                             </div>
                             <div class="likeShadowBlurry"></div>
                         </a>
@@ -48,7 +48,7 @@
             </ul>
             <div class="ctnBtm">
                 <div class="countdown-box">
-                    <p class="count-tips">
+                    <p class="count-tips" v-if="!activeEnd">
                         {{countDownText()}}
                     </p>
                     <div class="count-time" v-if="!activeEnd">
@@ -60,9 +60,9 @@
                 </div>
                 <div class="diyBtnWrap">
                     <a class="diyBtn">
-                        <div class="diyBtnCtn" @click="statisPoint(4),getActiveStart(2)">
+                        <div class="diyBtnCtn"  :class="{'is-end': activeEnd}" @click="statisPoint(4),getActiveStart(2)">
                             <div class="diyBtnText" v-if="isReserve">敬請期待</div>
-                            搶全新1卡2號
+                            {{activeEnd ? '活動已結束': '搶全新1卡2號'}}
                         </div>
                         <div class="likeShadowBlurry"></div>
                     </a>
@@ -297,6 +297,9 @@
                 return _text
             },
             getActiveStart (type) {
+                if (this.activeEnd) {
+                    return false;
+                }
                 //點擊按鈕判斷活動是否已經開始  1配對內地  2一卡兩號
                 if (type == 2 && this.isReserve) {  //判断是否抢1卡双号 且活动预留期间
                     this.$messagebox({
