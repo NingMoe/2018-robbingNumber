@@ -142,7 +142,7 @@
             if (new Date().getTime() > new Date(this.timeSelect[this.timeSelect.length-1].endTime).getTime()) {
                 this.activeEnd = true;
                 this.$messagebox({
-                    message: '<div class="index-popend">活動已結束，配對成功的用戶，請在8天內前往附近門店辦理，逾期號碼將失效。</div>',
+                    message: '<div class="index-popend">活動已結束，配對成功的用戶，請在7天內前往附近門店辦理，逾期號碼將失效。</div>',
                     confirmButtonText: '我知道了'
                 })
             }
