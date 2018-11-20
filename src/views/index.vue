@@ -9,23 +9,72 @@
             </p>
             <div class="detailText"><span>搵內地號碼&nbsp;&nbsp;搶1卡2號</span></div>
         </div>
-        <div class="preheatingTrans">
-            <div class="preheatingTransCtn">
-                <div class="diyTip">帶號碼轉台</div>
-                <div class="ctnTop"> 
-                    <img class="transPhone" src="../../static/images/preheatingTransPhone.png" />
-                    <p class="firstText">轉台加內地號碼<br class="xs-show">內地消費更便利</p>
-                    <!-- <p>辦內地銀行卡、<br class="xs-show">網購及登記app必備之選</p> -->
+        <div v-if="activeEnd" class="index-active-end">
+            <div class="container">
+                <div class="end-content">
+                    <h3>&lt;18萬個號碼在線搶&gt;活動現已結束</h3>
+                    <p>如需選號,請登入中國電信(澳門)有限公司官方網站方網站<a href="http://www.1888.com.mo">www.1888.com.mo</a>瀏覽或親瀏覽或親臨各門市辦理.</p>
+                    <div class="inset-btn">
+                        <a href="http://www.1888.com.mo">前往官網選號</a>
+                    </div>
                 </div>
+            </div>
+        </div>
+        <div v-else>
+            <div class="preheatingTrans">
+                <div class="preheatingTransCtn">
+                    <div class="diyTip">帶號碼轉台</div>
+                    <div class="ctnTop"> 
+                        <img class="transPhone" src="../../static/images/preheatingTransPhone.png" />
+                        <p class="firstText">轉台加內地號碼<br class="xs-show">內地消費更便利</p>
+                        <!-- <p>辦內地銀行卡、<br class="xs-show">網購及登記app必備之選</p> -->
+                    </div>
+                    <div class="ctnBtm">
+                        <div class="clock">
+                            <img src="../../static/images/clock.png" /><strong>10月18日至11月20日</strong>　
+                            <p class="extraText">內地號碼火熱開搶中<br class="xs-show">仲有機會搶到尾數一樣內地號碼</p>
+                        </div>
+                        <div class="diyBtnWrap">
+                            <a class="diyBtn">
+                                <div class="diyBtnCtn" :class="{'is-end': activeEnd}" @click="statisPoint(3),getActiveStart(1)">
+                                    {{activeEnd ? '活動已結束': '搶內地號碼'}}
+                                </div>
+                                <div class="likeShadowBlurry"></div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="preheatingReady">
+                <div class="diyTip diyTip1">新號碼上台</div>
+                <p class="titleText"><strong>全新1卡2號　勿失良機</strong></p>
+                <p class="titleSubText">新號碼一次過任你揀，搶得早，號碼好</p>
+                <ul class="timeCtn clearfix">
+                    <li v-for="(list,index) in timeSelect" :key="index" :class="{active: leftTime().inx == index}">
+                        <p>{{list.name}}</p>
+                        <p v-if="!list.end && list.start">火熱進行中</p>
+                        <p v-else-if="!list.start && (leftTime().inx == index)">即將開搶</p>
+                        <p v-else-if="!list.start && !list.end">敬請期待</p>
+                        <p v-else-if="list.end">已结束</p>
+                    </li>
+                </ul>
                 <div class="ctnBtm">
-                    <div class="clock">
-                        <img src="../../static/images/clock.png" /><strong>10月18日至11月20日</strong>　
-                        <p class="extraText">內地號碼火熱開搶中<br class="xs-show">仲有機會搶到尾數一樣內地號碼</p>
+                    <div class="countdown-box">
+                        <p class="count-tips" v-if="!activeEnd">
+                            {{countDownText()}}
+                        </p>
+                        <div class="count-time" v-if="!activeEnd">
+                            <big>{{countTime.day}}</big>天
+                            <big>{{countTime.hour}}</big>時
+                            <big>{{countTime.minute}}</big>分
+                            <big>{{countTime.second}}</big>秒
+                        </div>
                     </div>
                     <div class="diyBtnWrap">
                         <a class="diyBtn">
-                            <div class="diyBtnCtn" :class="{'is-end': activeEnd}" @click="statisPoint(3),getActiveStart(1)">
-                                {{activeEnd ? '活動已結束': '搶內地號碼'}}
+                            <div class="diyBtnCtn"  :class="{'is-end': activeEnd}" @click="statisPoint(4),getActiveStart(2)">
+                                <div class="diyBtnText" v-if="isReserve">敬請期待</div>
+                                {{activeEnd ? '活動已結束': '搶全新1卡2號'}}
                             </div>
                             <div class="likeShadowBlurry"></div>
                         </a>
@@ -33,49 +82,14 @@
                 </div>
             </div>
         </div>
-        <div class="preheatingReady">
-            <div class="diyTip diyTip1">新號碼上台</div>
-            <p class="titleText"><strong>全新1卡2號　勿失良機</strong></p>
-            <p class="titleSubText">新號碼一次過任你揀，搶得早，號碼好</p>
-            <ul class="timeCtn clearfix">
-                 <li v-for="(list,index) in timeSelect" :key="index" :class="{active: leftTime().inx == index}">
-                    <p>{{list.name}}</p>
-                    <p v-if="!list.end && list.start">火熱進行中</p>
-                    <p v-else-if="!list.start && (leftTime().inx == index)">即將開搶</p>
-                    <p v-else-if="!list.start && !list.end">敬請期待</p>
-                    <p v-else-if="list.end">已结束</p>
-                </li>
-            </ul>
-            <div class="ctnBtm">
-                <div class="countdown-box">
-                    <p class="count-tips" v-if="!activeEnd">
-                        {{countDownText()}}
-                    </p>
-                    <div class="count-time" v-if="!activeEnd">
-                        <big>{{countTime.day}}</big>天
-                        <big>{{countTime.hour}}</big>時
-                        <big>{{countTime.minute}}</big>分
-                        <big>{{countTime.second}}</big>秒
-                    </div>
-                </div>
-                <div class="diyBtnWrap">
-                    <a class="diyBtn">
-                        <div class="diyBtnCtn"  :class="{'is-end': activeEnd}" @click="statisPoint(4),getActiveStart(2)">
-                            <div class="diyBtnText" v-if="isReserve">敬請期待</div>
-                            {{activeEnd ? '活動已結束': '搶全新1卡2號'}}
-                        </div>
-                        <div class="likeShadowBlurry"></div>
-                    </a>
-                </div>
-            </div>
-        </div>
+        
         <div class="index-view-number">
             <div class="container">
                 <p>我參與過活動了，查看我已經搶佔的號碼</p>
                 <router-link to="/searchinfo" @click.native="statisPoint(5)">立即查看 &gt;</router-link>
             </div>
         </div>
-       <st-rule />
+       <st-rule v-if="!activeEnd"/>
        <st-map />
        <st-footer />
        <transition name="alertFade">
